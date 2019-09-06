@@ -49,6 +49,7 @@ class Visitor(ast.NodeVisitor):
 
 class Plugin:
     """Core plugin class for flake8-absolute-import."""
+
     name = "flake8-absolute-import"
     version = __version__
 
