@@ -1,4 +1,4 @@
-r"""*Root package definition for* ``flake8-absolute-import``.
+r"""*Version definition file for* ``flake8-absolute-import``.
 
 flake8 plugin to require absolute imports
 
@@ -24,4 +24,4 @@ flake8 plugin to require absolute imports
 
 """
 
-from flake8_absolute_import import __version__
+__version__ = "0.1.dev1"
