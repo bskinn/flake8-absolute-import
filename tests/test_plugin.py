@@ -33,6 +33,7 @@ from flake8_absolute_import import Plugin
 
 @pytest.mark.parametrize("line", ["import sys", "import flake8_absolute_import"])
 def test_module_import(line):
+    """Confirm no error found on module import."""
     tree = ast.parse(line)
     assert len(list(Plugin(tree).run())) == 0
 
@@ -46,6 +47,7 @@ def test_module_import(line):
     ],
 )
 def test_absolute_import(line):
+    """Confirm no error found on absolute member import."""
     tree = ast.parse(line)
     assert len(list(Plugin(tree).run())) == 0
 
@@ -54,5 +56,22 @@ def test_absolute_import(line):
     "line", ["from .core import Plugin", "from .version import __version__"]
 )
 def test_relative_import(line):
+    """Confirm error *IS* found on relative member import."""
+    tree = ast.parse(line)
+    assert len(list(Plugin(tree).run())) == 1
+
+
+def test_multiple_relative_imports():
+    """Confirm multiple errors are found on multiple relative member imports."""
+    line = "from .core import Plugin\nfrom .version import __version__"
+
+    tree = ast.parse(line)
+    assert len(list(Plugin(tree).run())) == (line.count("\n") + 1)
+
+
+def test_multilevel_relative_import():
+    """Confirm error is found with a multi-dot relative import."""
+    line = "from ..foo import bar"
+
     tree = ast.parse(line)
     assert len(list(Plugin(tree).run())) == 1
