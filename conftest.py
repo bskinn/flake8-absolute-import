@@ -23,4 +23,3 @@ flake8 plugin to require absolute imports
 **Members**
 
 """
-

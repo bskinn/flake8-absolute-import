@@ -24,4 +24,5 @@ flake8 plugin to require absolute imports
 
 """
 
-from flake8_absolute_import import __version__
+from flake8_absolute_import.core import Plugin
+from flake8_absolute_import.version import __version__

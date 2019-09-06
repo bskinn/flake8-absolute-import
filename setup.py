@@ -48,9 +48,9 @@ setup(
     packages=find_packages("src"),
     package_dir={"": "src"},
     provides=["flake8_absolute_import"],
-    #python_requires=">=3.5",
-    requires=["flake8"],
-    install_requires=["flake8"],
+    # python_requires=">=3.5",
+    requires=["flake8 (>=3.0)"],
+    install_requires=["flake8~=3.0"],
     classifiers=[
         "License :: OSI Approved",
         "License :: OSI Approved :: MIT License",
@@ -68,5 +68,5 @@ setup(
         "Topic :: Software Development :: Quality Assurance",
         "Development Status :: 2 - Pre-Alpha",
     ],
-    entry_points={"flake8.extension": ["ABS = flake8_absolute_import:FooClass",]},
+    entry_points={"flake8.extension": ["ABS1 = flake8_absolute_import:Plugin"]},
 )

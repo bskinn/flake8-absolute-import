@@ -24,4 +24,4 @@ flake8 plugin to require absolute imports
 
 """
 
-__version__ = "0.1.dev1"
+__version__ = "1.0.dev1"
