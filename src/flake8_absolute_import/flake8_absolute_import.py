@@ -1,4 +1,4 @@
-r"""*Root conftest for* ``flake8-absolute-import``.
+r"""*Main implementation file for* ``flake8-absolute-import``.
 
 flake8 plugin to require absolute imports
 

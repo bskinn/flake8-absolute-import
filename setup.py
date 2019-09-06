@@ -3,13 +3,13 @@ from pathlib import Path
 from setuptools import find_packages, setup
 
 
-with (Path(".") / "src" / "sphobjinv" / "version.py").open() as f:
+with (Path(".") / "src" / "flake8_absolute_import" / "version.py").open() as f:
     exec(f.read())
 
-NAME = "sphobjinv"
+NAME = "flake8-absolute-import"
 
 
-version_override = "2.0"
+version_override = None
 
 
 def readme():
@@ -39,24 +39,23 @@ def readme():
 setup(
     name=NAME,
     version=__version__,
-    description="Sphinx objects.inv Inspection/Manipulation Tool",
+    description="flake8 plugin to require absolute imports",
     long_description=readme(),
-    url="https://github.com/bskinn/sphobjinv",
+    url="https://github.com/bskinn/flake8-absolute-import",
     license="MIT License",
     author="Brian Skinn",
     author_email="bskinn@alum.mit.edu",
     packages=find_packages("src"),
     package_dir={"": "src"},
-    provides=["sphobjinv"],
-    python_requires=">=3.5",
-    requires=["attrs (>=17.4)", "certifi", "fuzzywuzzy (>=0.3)", "jsonschema (>=2.0)"],
-    install_requires=["attrs>=17.4", "certifi", "fuzzywuzzy>=0.3", "jsonschema>=2.0"],
+    provides=["flake8_absolute_import"],
+    #python_requires=">=3.5",
+    requires=["flake8"],
+    install_requires=["flake8"],
     classifiers=[
         "License :: OSI Approved",
         "License :: OSI Approved :: MIT License",
         "Natural Language :: English",
-        "Environment :: Console",
-        "Framework :: Sphinx",
+        "Framework :: Flake8",
         "Intended Audience :: Developers",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
@@ -65,8 +64,9 @@ setup(
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
-        "Topic :: Utilities",
-        "Development Status :: 5 - Production/Stable",
+        "Programming Language :: Python :: 3.8",
+        "Topic :: Software Development :: Quality Assurance",
+        "Development Status :: 2 - Pre-Alpha",
     ],
-    entry_points={"console_scripts": ["sphobjinv = sphobjinv.cmdline:main"]},
+    entry_points={"flake8.extension": ["ABS = flake8_absolute_import:FooClass",]},
 )

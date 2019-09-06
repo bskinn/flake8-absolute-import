@@ -7,7 +7,7 @@ line-length = 88
 include = '''
 (
     ^/tests/.*[.]py$
-  | ^/src/sphobjinv/.*[.]py$
+  | ^/src/flake8_absolute_import/.*[.]py$
   | ^/setup[.]py
   | ^/conftest[.]py
 )
