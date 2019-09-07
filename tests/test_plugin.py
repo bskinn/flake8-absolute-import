@@ -22,6 +22,7 @@ flake8 plugin to require absolute imports
 """
 
 import ast
+from textwrap import dedent
 
 import pytest
 
@@ -72,3 +73,43 @@ def test_multilevel_relative_import():
 
     tree = ast.parse(line)
     assert len(list(Plugin(tree).run())) == 1
+
+
+@pytest.mark.parametrize("impfrom", ["mod", ".mod"])
+def test_func_imports(impfrom):
+    code = dedent(
+        """
+    def func():
+        from {} import foo
+    """
+    ).format(impfrom)
+
+    tree = ast.parse(code)
+    assert (len(list(Plugin(tree).run())) == 1) == (impfrom.startswith("."))
+
+
+@pytest.mark.parametrize("impfrom", ["mod", ".mod"])
+def test_class_imports(impfrom):
+    code = dedent(
+        """
+    class Bar:
+        from {} import foo
+    """
+    ).format(impfrom)
+
+    tree = ast.parse(code)
+    assert (len(list(Plugin(tree).run())) == 1) == (impfrom.startswith("."))
+
+
+@pytest.mark.parametrize("impfrom", ["mod", ".mod"])
+def test_method_imports(impfrom):
+    code = dedent(
+        """
+    class Bar:
+        def baz(self):
+            from {} import foo
+    """
+    ).format(impfrom)
+
+    tree = ast.parse(code)
+    assert (len(list(Plugin(tree).run())) == 1) == (impfrom.startswith("."))
