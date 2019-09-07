@@ -14,9 +14,6 @@ flake8 plugin to require absolute imports
 **Source Repository**
     http://www.github.com/bskinn/flake8-absolute-import
 
-**Documentation**
-    http://flake8-absolute-import.readthedocs.io
-
 **License**
     The MIT License; see |license_txt|_ for full license terms
 
