@@ -28,9 +28,10 @@ import pytest
 
 from flake8_absolute_import import Plugin
 
+
 def is_relative(s):
     """Indicate if a given 'from s' import location is a relative import."""
-    return s.startswith('.')
+    return s.startswith(".")
 
 
 def format_id(i):
@@ -80,14 +81,16 @@ def test_multiple_relative_imports():
 
 def test_correct_relative_import_linenos():
     """Confirm the multiple errors are reported on the correct lines."""
-    code = dedent("""\
+    code = dedent(
+        """\
     from .core import Plugin
     from f8_absolute_import.core import Visitor
     from .version import __version__
-    """)
+    """
+    )
 
     tree = ast.parse(code)
-    assert set(t[0] for t in Plugin(tree).run()) == {1, 3}
+    assert {t[0] for t in Plugin(tree).run()} == {1, 3}
 
 
 @pytest.mark.xfail
@@ -101,6 +104,7 @@ def test_multilevel_relative_import():
 
 @pytest.mark.parametrize("impfrom", ["mod", ".mod"], ids=format_id)
 def test_func_imports(impfrom):
+    """Confirm plugin works for imports in functions."""
     code = dedent(
         """
     def func():
@@ -114,6 +118,7 @@ def test_func_imports(impfrom):
 
 @pytest.mark.parametrize("impfrom", ["mod", ".mod"], ids=format_id)
 def test_class_imports(impfrom):
+    """Confirm plugin works for imports in class bodies."""
     code = dedent(
         """
     class Bar:
@@ -127,6 +132,7 @@ def test_class_imports(impfrom):
 
 @pytest.mark.parametrize("impfrom", ["mod", ".mod"], ids=format_id)
 def test_method_imports(impfrom):
+    """Confirm plugin works for imports in class methods."""
     code = dedent(
         """
     class Bar:
