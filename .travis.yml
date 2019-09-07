@@ -7,6 +7,7 @@ install:
  - if (( ( $PYTHON_MAJOR > 3 ) || ( $PYTHON_MAJOR == 3 && $PYTHON_MINOR >= 6 ) )); then pip install -r requirements-flake8.txt; fi
 language: python
 python:
+ - 3.4
  - 3.5
  - 3.6
  - 3.7
