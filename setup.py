@@ -48,7 +48,7 @@ setup(
     packages=find_packages("src"),
     package_dir={"": "src"},
     provides=["flake8_absolute_import"],
-    # python_requires=">=3.5",
+    python_requires=">=3.4",
     requires=["flake8 (>=3.0)"],
     install_requires=["flake8~=3.0"],
     classifiers=[
@@ -61,12 +61,13 @@ setup(
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3 :: Only",
+        "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Topic :: Software Development :: Quality Assurance",
-        "Development Status :: 2 - Pre-Alpha",
+        "Development Status :: 4 - Beta",
     ],
     entry_points={"flake8.extension": ["ABS1 = flake8_absolute_import:Plugin"]},
 )
