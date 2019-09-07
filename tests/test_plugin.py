@@ -28,54 +28,78 @@ import pytest
 
 from flake8_absolute_import import Plugin
 
+def is_relative(s):
+    """Indicate if a given 'from s' import location is a relative import."""
+    return s.startswith('.')
 
-@pytest.mark.parametrize("line", ["import sys", "import flake8_absolute_import"])
-def test_module_import(line):
+
+def format_id(i):
+    """Provide parametrization id formatting for the given id."""
+    return "{0} (expect {1}error)".format(i, "" if is_relative(i) else "no ")
+
+
+@pytest.mark.parametrize("code", ["import sys", "import flake8_absolute_import"])
+def test_module_import(code):
     """Confirm no error found on module import."""
-    tree = ast.parse(line)
+    tree = ast.parse(code)
     assert len(list(Plugin(tree).run())) == 0
 
 
 @pytest.mark.parametrize(
-    "line",
+    "code",
     [
         "from sys import argv",
         "from flake8_absolute_import import Plugin",
         "from flake8_absolute_import.core import Plugin",
     ],
 )
-def test_absolute_import(line):
+def test_absolute_import(code):
     """Confirm no error found on absolute member import."""
-    tree = ast.parse(line)
+    tree = ast.parse(code)
     assert len(list(Plugin(tree).run())) == 0
 
 
 @pytest.mark.parametrize(
-    "line", ["from .core import Plugin", "from .version import __version__"]
+    "code", ["from .core import Plugin", "from .version import __version__"]
 )
-def test_relative_import(line):
+@pytest.mark.xfail
+def test_relative_import(code):
     """Confirm error *IS* found on relative member import."""
-    tree = ast.parse(line)
-    assert len(list(Plugin(tree).run())) == 1
+    tree = ast.parse(code)
+    assert len(list(Plugin(tree).run())) == 0
 
 
+@pytest.mark.xfail
 def test_multiple_relative_imports():
     """Confirm multiple errors are found on multiple relative member imports."""
-    line = "from .core import Plugin\nfrom .version import __version__"
+    code = "from .core import Plugin\nfrom .version import __version__"
 
-    tree = ast.parse(line)
-    assert len(list(Plugin(tree).run())) == (line.count("\n") + 1)
+    tree = ast.parse(code)
+    assert len(list(Plugin(tree).run())) == 0
 
 
+def test_correct_relative_import_linenos():
+    """Confirm the multiple errors are reported on the correct lines."""
+    code = dedent("""\
+    from .core import Plugin
+    from f8_absolute_import.core import Visitor
+    from .version import __version__
+    """)
+
+    tree = ast.parse(code)
+    assert set(t[0] for t in Plugin(tree).run()) == {1, 3}
+
+
+@pytest.mark.xfail
 def test_multilevel_relative_import():
     """Confirm error is found with a multi-dot relative import."""
-    line = "from ..foo import bar"
+    code = "from ..foo import bar"
 
-    tree = ast.parse(line)
-    assert len(list(Plugin(tree).run())) == 1
+    tree = ast.parse(code)
+    assert len(list(Plugin(tree).run())) == 0
 
 
-@pytest.mark.parametrize("impfrom", ["mod", ".mod"])
+@pytest.mark.parametrize("impfrom", ["mod", ".mod"], ids=format_id)
 def test_func_imports(impfrom):
     code = dedent(
         """
@@ -88,7 +112,7 @@ def test_func_imports(impfrom):
     assert (len(list(Plugin(tree).run())) == 1) == (impfrom.startswith("."))
 
 
-@pytest.mark.parametrize("impfrom", ["mod", ".mod"])
+@pytest.mark.parametrize("impfrom", ["mod", ".mod"], ids=format_id)
 def test_class_imports(impfrom):
     code = dedent(
         """
@@ -101,7 +125,7 @@ def test_class_imports(impfrom):
     assert (len(list(Plugin(tree).run())) == 1) == (impfrom.startswith("."))
 
 
-@pytest.mark.parametrize("impfrom", ["mod", ".mod"])
+@pytest.mark.parametrize("impfrom", ["mod", ".mod"], ids=format_id)
 def test_method_imports(impfrom):
     code = dedent(
         """
