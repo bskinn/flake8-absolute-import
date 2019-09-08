@@ -50,7 +50,7 @@ setup(
     provides=["flake8_absolute_import"],
     python_requires=">=3.4",
     requires=["flake8 (>=3.0)"],
-    install_requires=["flake8~=3.0"],
+    install_requires=["flake8>=3.0"],
     classifiers=[
         "License :: OSI Approved",
         "License :: OSI Approved :: MIT License",
