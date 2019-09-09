@@ -67,7 +67,7 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Topic :: Software Development :: Quality Assurance",
-        "Development Status :: 4 - Beta",
+        "Development Status :: 5 - Production/Stable",
     ],
     entry_points={"flake8.extension": ["ABS1 = flake8_absolute_import:Plugin"]},
 )

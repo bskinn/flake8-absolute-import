@@ -1,10 +1,15 @@
-flake8-absolute-import: Require absolute imports
-================================================
+flake8-absolute-import
+======================
+
+*flake8 plugin to require absolute imports*
 
 **Current Development Version:**
 
-.. image:: https://travis-ci.org/bskinn/flake8-absolute-import.svg?branch=master
-    :target: https://travis-ci.org/bskinn/flake8-absolute-import
+.. image:: https://img.shields.io/azure-devops/build/brianskinn/69156953-0c09-4122-8268-0cc35b259749/3?label=azure-pipelines
+    :target: https://dev.azure.com/brianskinn/flake8-absolute-import/_build?definitionId=3
+
+.. image:: https://travis-ci.com/bskinn/flake8-absolute-import.svg?branch=master
+    :target: https://travis-ci.com/bskinn/flake8-absolute-import
 
 .. image:: https://codecov.io/gh/bskinn/flake8-absolute-import/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/bskinn/flake8-absolute-import
@@ -18,23 +23,19 @@ flake8-absolute-import: Require absolute imports
 
 **Info:**
 
-.. image:: https://img.shields.io/readthedocs/flake8-absolute-import/latest.svg
-    :target: http://flake8-absolute-import.readthedocs.io/en/latest/
-
 .. image:: https://img.shields.io/github/license/mashape/apistatus.svg
     :target: https://github.com/bskinn/flake8-absolute-import/blob/stable/LICENSE.txt
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-    :target: https://github.com/ambv/black
+    :target: https://github.com/psf/black
 
 ----
 
-*CONTENT PENDING*
+*Don't like relative imports?*
+
+Lint 'em out, with `flake8-absolute-import`!
 
 ----
-
-Full documentation is hosted at
-`Read The Docs <http://flake8-absolute-import.readthedocs.io/en/latest/>`__.
 
 Available on `PyPI <https://pypi.python.org/pypi/flake8-absolute-import>`__
 (``pip install flake8-absolute-import``).
