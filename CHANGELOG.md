@@ -9,7 +9,11 @@ and this project strives to adhere to
 
 ### Unreleased Changes
 
+...
+
+### [1.0.0] - 2019-09-09
+
 #### Features
 
- * ...
+ * Detect any relative imports and report with error code ABS101
 

@@ -41,6 +41,7 @@ setup(
     version=__version__,
     description="flake8 plugin to require absolute imports",
     long_description=readme(),
+    long_description_content_type="text/x-rst",
     url="https://github.com/bskinn/flake8-absolute-import",
     license="MIT License",
     author="Brian Skinn",
@@ -67,7 +68,7 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Topic :: Software Development :: Quality Assurance",
-        "Development Status :: 4 - Beta",
+        "Development Status :: 5 - Production/Stable",
     ],
     entry_points={"flake8.extension": ["ABS1 = flake8_absolute_import:Plugin"]},
 )
