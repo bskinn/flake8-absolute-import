@@ -33,12 +33,25 @@ flake8-absolute-import
 
 *Don't like relative imports?*
 
-Lint 'em out, with `flake8-absolute-import`!
+Lint 'em out!
+
+``flake8-absolute-import`` uses a simple check of the AST for each
+``from x import y`` statement to flag relative imports.
+Specifically, it checks for a nonzero *level* attribute on each
+|ImportFrom|_ node.
+
+Relative imports raise the ``ABS101`` error code:
+
+.. code:: python
+
+    from foo import bar   # OK
+    from .foo import bar  # ABS101!!
 
 ----
 
 Available on `PyPI <https://pypi.python.org/pypi/flake8-absolute-import>`__
-(``pip install flake8-absolute-import``).
+(``pip install flake8-absolute-import``).  ``flake8`` should automatically
+detect and load the plugin. ``flake8``>=3.0 is required.
 
 Source on `GitHub <https://github.com/bskinn/flake8-absolute-import>`__.  Bug reports
 and feature requests are welcomed at the
@@ -48,3 +61,6 @@ Copyright (c) Brian Skinn 2019
 
 License: The MIT License. See `LICENSE.txt <https://github.com/bskinn/flake8-absolute-import/blob/master/LICENSE.txt>`__
 for full license terms.
+
+.. _ImportFrom: https://greentreesnakes.readthedocs.io/en/latest/nodes.html#ImportFrom
+.. |ImportFrom| replace:: ``ImportFrom``
