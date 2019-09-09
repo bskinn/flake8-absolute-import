@@ -41,6 +41,7 @@ setup(
     version=__version__,
     description="flake8 plugin to require absolute imports",
     long_description=readme(),
+    long_description_content_type="text/x-rst",
     url="https://github.com/bskinn/flake8-absolute-import",
     license="MIT License",
     author="Brian Skinn",
