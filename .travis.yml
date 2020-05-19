@@ -7,15 +7,15 @@ install:
  - if (( ( $PYTHON_MAJOR > 3 ) || ( $PYTHON_MAJOR == 3 && $PYTHON_MINOR >= 6 ) )); then pip install -r requirements-flake8.txt; fi
 language: python
 python:
- - 3.4
  - 3.5
  - 3.6
  - 3.7
- - 3.8-dev
+ - 3.8
+ - 3.9-dev
 script:
  - python --version
  - pip list
  - pytest --cov=.
- - if (( $PYTHON_MAJOR == 3 && $PYTHON_MINOR == 7 )); then tox -e flake8; else echo "No flake8."; fi
- - if (( $PYTHON_MAJOR == 3 && $PYTHON_MINOR == 7 )); then codecov; else echo "No codecov."; fi
+ - if (( $PYTHON_MAJOR == 3 && $PYTHON_MINOR == 8 )); then tox -e flake8; else echo "No flake8."; fi
+ - if (( $PYTHON_MAJOR == 3 && $PYTHON_MINOR == 8 )); then codecov; else echo "No codecov."; fi
 
