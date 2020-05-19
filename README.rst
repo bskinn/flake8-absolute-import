@@ -57,7 +57,7 @@ Source on `GitHub <https://github.com/bskinn/flake8-absolute-import>`__.  Bug re
 and feature requests are welcomed at the
 `Issues <https://github.com/bskinn/flake8-absolute-import/issues>`__ page there.
 
-Copyright (c) Brian Skinn 2019
+Copyright (c) Brian Skinn 2019-2020
 
 License: The MIT License. See `LICENSE.txt <https://github.com/bskinn/flake8-absolute-import/blob/master/LICENSE.txt>`__
 for full license terms.
