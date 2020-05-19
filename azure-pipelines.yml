@@ -12,14 +12,14 @@ jobs:
 - template: azure-job.yml
   parameters:
     pythons:
-      py34:
-        spec: '3.4'
       py35:
         spec: '3.5'
       py36:
         spec: '3.6'
       py37:
         spec: '3.7'
+      py38:
+        spec: '3.8'
     images: [linux, windows, macOs]
 
 - job: flake8
@@ -28,7 +28,7 @@ jobs:
   steps:
     - task: UsePythonVersion@0
       inputs:
-        versionSpec: '3.7'
+        versionSpec: '3.8'
 
     - script: pip install -U tox
       displayName: Install tox
@@ -45,7 +45,7 @@ jobs:
   steps:
     - task: UsePythonVersion@0
       inputs:
-        versionSpec: '3.7'
+        versionSpec: '3.8'
 
     - script: pip install -r requirements-ci.txt
       displayName: Install CI requirements

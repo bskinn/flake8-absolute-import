@@ -11,13 +11,13 @@ jobs:
           ${{ image }}:
             image_name: ${{ coalesce(image, 'linux') }}
             ${{ if eq(image, 'linux') }}:
-              image: 'Ubuntu-16.04'
+              image: 'Ubuntu-latest'
             ${{ if eq(image, 'windows') }}:
-              image: 'windows-2019'
+              image: 'windows-latest'
             ${{ if eq(image, 'macOs') }}:
-              image: 'macOS-10.14'
+              image: 'macOS-latest'
             ${{ if notIn(image, 'macOs', 'linux', 'windows') }}:
-              image: ${{ coalesce(image, 'Ubuntu-16.04') }}
+              image: ${{ coalesce(image, 'Ubuntu-latest') }}
 
     pool:
       vmImage: $[ variables.image ]
