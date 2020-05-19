@@ -20,8 +20,6 @@ jobs:
         spec: '3.7'
       py38:
         spec: '3.8'
-      py39_dev:
-        spec: '3.9-dev'
     images: [linux, windows, macOs]
 
 - job: flake8
