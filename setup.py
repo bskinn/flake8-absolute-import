@@ -3,7 +3,7 @@ from pathlib import Path
 from setuptools import find_packages, setup
 
 
-with (Path(".") / "src" / "flake8_absolute_import" / "version.py").open() as f:
+with Path("src", "flake8_absolute_import", "version.py").open() as f:
     exec(f.read())
 
 NAME = "flake8-absolute-import"
@@ -49,9 +49,9 @@ setup(
     packages=find_packages("src"),
     package_dir={"": "src"},
     provides=["flake8_absolute_import"],
-    python_requires=">=3.4",
-    requires=["flake8 (>=3.0)"],
-    install_requires=["flake8>=3.0"],
+    python_requires=">=3.5",
+    requires=["flake8 (>=3.7)"],
+    install_requires=["flake8>=3.7"],
     classifiers=[
         "License :: OSI Approved",
         "License :: OSI Approved :: MIT License",
@@ -62,11 +62,11 @@ setup(
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
         "Topic :: Software Development :: Quality Assurance",
         "Development Status :: 5 - Production/Stable",
     ],
