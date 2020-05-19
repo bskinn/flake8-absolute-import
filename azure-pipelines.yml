@@ -24,7 +24,7 @@ jobs:
 
 - job: flake8
   pool:
-    vmImage: 'Ubuntu-16.04'
+    vmImage: 'Ubuntu-latest'
   steps:
     - task: UsePythonVersion@0
       inputs:
@@ -41,7 +41,7 @@ jobs:
 
 - job: testdir_coverage
   pool:
-    vmImage: 'Ubuntu-16.04'
+    vmImage: 'Ubuntu-latest'
   steps:
     - task: UsePythonVersion@0
       inputs:
