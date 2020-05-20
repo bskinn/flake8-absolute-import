@@ -49,7 +49,7 @@ setup(
     packages=find_packages("src"),
     package_dir={"": "src"},
     provides=["flake8_absolute_import"],
-    python_requires=">=3.5",
+    python_requires=">=3.4",
     requires=["flake8 (>=3.7)"],
     install_requires=["flake8>=3.7"],
     classifiers=[
