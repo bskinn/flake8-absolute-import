@@ -6,14 +6,15 @@ jobs:
 - ${{ each python in parameters.pythons }}:
   - ${{ each platform in parameters.platforms }}:
     - job: ${{ coalesce(python.value.name, python.key) }}_${{ coalesce(platform, 'linux') }}
-      ${{ if eq(platform, 'linux') }}:
-        image: 'Ubuntu-latest'
-      ${{ if eq(platform, 'windows') }}:
-        image: 'windows-latest'
-      ${{ if eq(platform, 'macOs') }}:
-        image: 'macOS-latest'
-      ${{ if notIn(platform, 'macOs', 'linux', 'windows') }}:
-        image: 'Ubuntu-latest'
+      - variables:
+        ${{ if eq(platform, 'linux') }}:
+          image: 'Ubuntu-latest'
+        ${{ if eq(platform, 'windows') }}:
+          image: 'windows-latest'
+        ${{ if eq(platform, 'macOs') }}:
+          image: 'macOS-latest'
+        ${{ if notIn(platform, 'macOs', 'linux', 'windows') }}:
+          image: 'Ubuntu-latest'
 
     pool:
       vmImage: $[ variables.image ]
