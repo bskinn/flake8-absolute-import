@@ -6,7 +6,7 @@ jobs:
 - ${{ each python in parameters.pythons }}:
   - ${{ each platform in parameters.platforms }}:
     - job: ${{ coalesce(python.value.name, python.key) }}_${{ coalesce(platform, 'linux') }}
-      - variables:
+      variables:
         ${{ if eq(platform, 'linux') }}:
           image: 'Ubuntu-latest'
         ${{ if eq(platform, 'windows') }}:
@@ -16,18 +16,18 @@ jobs:
         ${{ if notIn(platform, 'macOs', 'linux', 'windows') }}:
           image: 'Ubuntu-latest'
 
-    pool:
-      vmImage: $[ variables.image ]
+      pool:
+        vmImage: $[ variables.image ]
 
-    steps:
-      - task: UsePythonVersion@0
-        inputs:
-          versionSpec: '${{ python.value.spec }}'
-          architecture: 'x64'
-        displayName: Use cached Python ${{ python.value.spec }} for tests.
+      steps:
+        - task: UsePythonVersion@0
+          inputs:
+            versionSpec: '${{ python.value.spec }}'
+            architecture: 'x64'
+          displayName: Use cached Python ${{ python.value.spec }} for tests.
 
-      - script: pip install -r requirements-ci.txt
-        displayName: Install CI requirements
+        - script: pip install -r requirements-ci.txt
+          displayName: Install CI requirements
 
-      - script: pytest
-        displayName: Run pytest (Python ${{ python.value.spec }})
+        - script: pytest
+          displayName: Run pytest (Python ${{ python.value.spec }})
