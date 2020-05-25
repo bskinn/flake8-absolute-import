@@ -9,7 +9,7 @@ pr:
 
 
 jobs:
-- template: azure-job.yml
+- template: azure-coretest.yml
   parameters:
     pythons:
       py35:
@@ -20,7 +20,7 @@ jobs:
         spec: '3.7'
       py38:
         spec: '3.8'
-    images: [linux, windows, macOs]
+    platforms: [linux, windows, macOs]
 
 - job: flake8
   pool:
