@@ -11,18 +11,22 @@ and this project strives to adhere to
 
 #### Added
 
-- Support for Python 3.10 and 3.11 was officially added
+- Support for Python 3.10 and 3.11-dev was officially added
 
 #### Removed
 
 - Support for Python 3.5 was officially removed (the plugin may remain compatible,
   but this is not guaranteed)
 
-#### Internal
+#### Testing
 
 - Support for running the `tox` matrix on Windows was removed (it doesn't
   seem to work right with the batch-files-in-bin-folder approach I use for
   multiple Pythons in development)
+
+- Routine CI switched from Travis CI to GitHub Actions
+
+- CI and `tox` versions updated to focus on Python 3.10
 
 
 ### [1.0.0] - 2019-09-09
