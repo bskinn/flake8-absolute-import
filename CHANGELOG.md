@@ -9,11 +9,25 @@ and this project strives to adhere to
 
 ### Unreleased Changes
 
-...
+#### Added
+
+- Support for Python 3.10 and 3.11 was officially added
+
+#### Removed
+
+- Support for Python 3.5 was officially removed (the plugin may remain compatible,
+  but this is not guaranteed)
+
+#### Internal
+
+- Support for running the `tox` matrix on Windows was removed (it doesn't
+  seem to work right with the batch-files-in-bin-folder approach I use for
+  multiple Pythons in development)
+
 
 ### [1.0.0] - 2019-09-09
 
 #### Features
 
- * Detect any relative imports and report with error code ABS101
+- Detect any relative imports and report with error code ABS101
 
