@@ -28,7 +28,7 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest --cov=src
+        pytest --cov
         tox -e sdist_install
 
     - name: Lint code
@@ -66,6 +66,6 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest --cov=src
+        pytest --cov
         tox -e sdist_install
       
