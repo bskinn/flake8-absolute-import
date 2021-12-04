@@ -15,8 +15,8 @@ and this project strives to adhere to
 
 #### Removed
 
-- Support for Python 3.5 was officially removed (the plugin may remain compatible,
-  but this is not guaranteed)
+- Support for Python 3.5 was officially removed, though the plugin should
+  remain compatible.
 
 #### Testing
 
