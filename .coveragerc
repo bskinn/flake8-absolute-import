@@ -1,8 +1,7 @@
 [run]
-source =
-    src/*
 
 include =
+    src/*
     tests/*
 
 omit =
