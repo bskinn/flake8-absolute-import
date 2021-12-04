@@ -5,11 +5,9 @@ flake8-absolute-import
 
 **Current Development Version:**
 
-.. image:: https://img.shields.io/azure-devops/build/brianskinn/69156953-0c09-4122-8268-0cc35b259749/3?label=azure-pipelines&logo=azure-devops
-    :target: https://dev.azure.com/brianskinn/flake8-absolute-import/_build?definitionId=3
-
-.. image:: https://img.shields.io/travis/com/bskinn/flake8-absolute-import?label=travis-ci&logo=travis
-    :target: https://travis-ci.com/bskinn/flake8-absolute-import
+.. image:: https://img.shields.io/github/workflow/status/bskinn/flake8-absolute-import/ci-tests?logo=github
+    :alt: GitHub Workflow Status
+    :target: https://github.com/bskinn/flake8-absolute-import/actions
 
 .. image:: https://codecov.io/gh/bskinn/flake8-absolute-import/branch/main/graph/badge.svg
     :target: https://codecov.io/gh/bskinn/flake8-absolute-import
