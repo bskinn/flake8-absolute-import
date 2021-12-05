@@ -49,13 +49,13 @@ Relative imports raise the ``ABS101`` error code:
 
 Available on `PyPI <https://pypi.python.org/pypi/flake8-absolute-import>`__
 (``pip install flake8-absolute-import``).  ``flake8`` should automatically
-detect and load the plugin. ``flake8``>=3.0 is required.
+detect and load the plugin. ``flake8``>=3.7 is required.
 
 Source on `GitHub <https://github.com/bskinn/flake8-absolute-import>`__.  Bug reports
 and feature requests are welcomed at the
 `Issues <https://github.com/bskinn/flake8-absolute-import/issues>`__ page there.
 
-Copyright (c) Brian Skinn 2019-2020
+Copyright (c) Brian Skinn 2019-2021
 
 License: The MIT License. See `LICENSE.txt <https://github.com/bskinn/flake8-absolute-import/blob/main/LICENSE.txt>`__
 for full license terms.

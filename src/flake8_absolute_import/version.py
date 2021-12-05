@@ -9,7 +9,7 @@ flake8 plugin to require absolute imports
     6 Sep 2019
 
 **Copyright**
-    \(c) Brian Skinn 2019-2020
+    \(c) Brian Skinn 2019-2021
 
 **Source Repository**
     http://github.com/bskinn/flake8-absolute-import
