@@ -7,7 +7,7 @@ and this project strives to adhere (mostly) to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
-### [1.0.0.1] - ####-##-##
+### [1.0.0.1] - 2021-12-04
 
 This is an administrative/metadata release, primarily to update officially
 supported Python versions. There should be no behavior changes between 
