@@ -3,7 +3,7 @@ from pathlib import Path
 from setuptools import find_packages, setup
 
 
-with (Path(".") / "src" / "flake8_absolute_import" / "version.py").open() as f:
+with Path("src", "flake8_absolute_import", "version.py").open() as f:
     exec(f.read())
 
 NAME = "flake8-absolute-import"
@@ -39,36 +39,6 @@ def readme():
 setup(
     name=NAME,
     version=__version__,
-    description="flake8 plugin to require absolute imports",
     long_description=readme(),
     long_description_content_type="text/x-rst",
-    url="https://github.com/bskinn/flake8-absolute-import",
-    license="MIT License",
-    author="Brian Skinn",
-    author_email="bskinn@alum.mit.edu",
-    packages=find_packages("src"),
-    package_dir={"": "src"},
-    provides=["flake8_absolute_import"],
-    python_requires=">=3.4",
-    requires=["flake8 (>=3.0)"],
-    install_requires=["flake8>=3.0"],
-    classifiers=[
-        "License :: OSI Approved",
-        "License :: OSI Approved :: MIT License",
-        "Natural Language :: English",
-        "Framework :: Flake8",
-        "Intended Audience :: Developers",
-        "Operating System :: OS Independent",
-        "Programming Language :: Python",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Topic :: Software Development :: Quality Assurance",
-        "Development Status :: 5 - Production/Stable",
-    ],
-    entry_points={"flake8.extension": ["ABS1 = flake8_absolute_import:Plugin"]},
 )

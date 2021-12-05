@@ -5,13 +5,11 @@ flake8-absolute-import
 
 **Current Development Version:**
 
-.. image:: https://img.shields.io/azure-devops/build/brianskinn/69156953-0c09-4122-8268-0cc35b259749/3?label=azure-pipelines&logo=azure-devops
-    :target: https://dev.azure.com/brianskinn/flake8-absolute-import/_build?definitionId=3
+.. image:: https://img.shields.io/github/workflow/status/bskinn/flake8-absolute-import/ci-tests?logo=github
+    :alt: GitHub Workflow Status
+    :target: https://github.com/bskinn/flake8-absolute-import/actions
 
-.. image:: https://img.shields.io/travis/com/bskinn/flake8-absolute-import?label=travis-ci&logo=travis
-    :target: https://travis-ci.com/bskinn/flake8-absolute-import
-
-.. image:: https://codecov.io/gh/bskinn/flake8-absolute-import/branch/master/graph/badge.svg
+.. image:: https://codecov.io/gh/bskinn/flake8-absolute-import/branch/main/graph/badge.svg
     :target: https://codecov.io/gh/bskinn/flake8-absolute-import
 
 **Most Recent Stable Release:**
@@ -51,15 +49,15 @@ Relative imports raise the ``ABS101`` error code:
 
 Available on `PyPI <https://pypi.python.org/pypi/flake8-absolute-import>`__
 (``pip install flake8-absolute-import``).  ``flake8`` should automatically
-detect and load the plugin. ``flake8``>=3.0 is required.
+detect and load the plugin. ``flake8``>=3.7 is required.
 
 Source on `GitHub <https://github.com/bskinn/flake8-absolute-import>`__.  Bug reports
 and feature requests are welcomed at the
 `Issues <https://github.com/bskinn/flake8-absolute-import/issues>`__ page there.
 
-Copyright (c) Brian Skinn 2019
+Copyright (c) Brian Skinn 2019-2021
 
-License: The MIT License. See `LICENSE.txt <https://github.com/bskinn/flake8-absolute-import/blob/master/LICENSE.txt>`__
+License: The MIT License. See `LICENSE.txt <https://github.com/bskinn/flake8-absolute-import/blob/main/LICENSE.txt>`__
 for full license terms.
 
 .. _ImportFrom: https://greentreesnakes.readthedocs.io/en/latest/nodes.html#ImportFrom

@@ -1,34 +1,34 @@
 trigger:
-  - master
   - release-*
 
 pr:
   branches:
     include:
-    - master
+    - main
+    - stable
 
 
 jobs:
-- template: azure-job.yml
+- template: azure-coretest.yml
   parameters:
     pythons:
-      py34:
-        spec: '3.4'
-      py35:
-        spec: '3.5'
-      py36:
-        spec: '3.6'
       py37:
         spec: '3.7'
-    images: [linux, windows, macOs]
+      py38:
+        spec: '3.8'
+      py39:
+        spec: '3.9'
+      py310:
+        spec: '3.10'
+    platforms: [linux, windows, macOs]
 
 - job: flake8
   pool:
-    vmImage: 'Ubuntu-16.04'
+    vmImage: 'Ubuntu-latest'
   steps:
     - task: UsePythonVersion@0
       inputs:
-        versionSpec: '3.7'
+        versionSpec: '3.10'
 
     - script: pip install -U tox
       displayName: Install tox
@@ -41,16 +41,16 @@ jobs:
 
 - job: testdir_coverage
   pool:
-    vmImage: 'Ubuntu-16.04'
+    vmImage: 'Ubuntu-latest'
   steps:
     - task: UsePythonVersion@0
       inputs:
-        versionSpec: '3.7'
+        versionSpec: '3.10'
 
     - script: pip install -r requirements-ci.txt
       displayName: Install CI requirements
 
-    - script: pytest --cov=.
+    - script: pytest --cov
       displayName: Run pytest with coverage
 
     - script: coverage report --include="tests/*" --fail-under=100
