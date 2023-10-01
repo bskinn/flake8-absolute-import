@@ -106,11 +106,11 @@ def test_multilevel_relative_import():
 def test_func_imports(impfrom):
     """Confirm plugin works for imports in functions."""
     code = dedent(
-        """
+        f"""
     def func():
-        from {} import foo
+        from {impfrom} import foo
     """
-    ).format(impfrom)
+    )
 
     tree = ast.parse(code)
     assert (len(list(Plugin(tree).run())) == 1) == (impfrom.startswith("."))
@@ -120,11 +120,11 @@ def test_func_imports(impfrom):
 def test_class_imports(impfrom):
     """Confirm plugin works for imports in class bodies."""
     code = dedent(
-        """
+        f"""
     class Bar:
-        from {} import foo
+        from {impfrom} import foo
     """
-    ).format(impfrom)
+    )
 
     tree = ast.parse(code)
     assert (len(list(Plugin(tree).run())) == 1) == (impfrom.startswith("."))
@@ -134,12 +134,12 @@ def test_class_imports(impfrom):
 def test_method_imports(impfrom):
     """Confirm plugin works for imports in class methods."""
     code = dedent(
-        """
+        f"""
     class Bar:
         def baz(self):
-            from {} import foo
+            from {impfrom} import foo
     """
-    ).format(impfrom)
+    )
 
     tree = ast.parse(code)
     assert (len(list(Plugin(tree).run())) == 1) == (impfrom.startswith("."))
