@@ -29,14 +29,14 @@ import pytest
 from flake8_absolute_import import Plugin
 
 
-def is_relative(s):
-    """Indicate if a given 'from s' import location is a relative import."""
-    return s.startswith(".")
+def is_relative(import_source):
+    """Indicate if a given 'from {source}' import location is a relative import."""
+    return import_source.startswith(".")
 
 
-def format_id(i):
+def format_id(id_):
     """Provide parametrization id formatting for the given id."""
-    return "{0} (expect {1}error)".format(i, "" if is_relative(i) else "no ")
+    return f"{id_} (expect {'' if is_relative(id_) else 'no '}error)"
 
 
 @pytest.mark.parametrize("code", ["import sys", "import flake8_absolute_import"])
