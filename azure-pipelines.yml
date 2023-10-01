@@ -22,6 +22,8 @@ jobs:
         spec: '3.11'
     platforms: [linux, windows, macOs]
 
+- template: azure-sdisttest.yml
+
 - job: flake8
   pool:
     vmImage: 'Ubuntu-latest'
