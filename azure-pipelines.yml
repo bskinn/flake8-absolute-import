@@ -20,8 +20,6 @@ jobs:
         spec: '3.10'
       py311:
         spec: '3.11'
-      py312:
-        spec: '3.12'
     platforms: [linux, windows, macOs]
 
 - job: flake8
@@ -30,7 +28,7 @@ jobs:
   steps:
     - task: UsePythonVersion@0
       inputs:
-        versionSpec: '3.12'
+        versionSpec: '3.11'
 
     - script: pip install -U tox
       displayName: Install tox
@@ -44,7 +42,7 @@ jobs:
   steps:
     - task: UsePythonVersion@0
       inputs:
-        versionSpec: '3.12'
+        versionSpec: '3.11'
 
     - script: pip install -r requirements-ci.txt
       displayName: Install CI requirements
