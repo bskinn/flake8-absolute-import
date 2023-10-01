@@ -12,14 +12,16 @@ jobs:
 - template: azure-coretest.yml
   parameters:
     pythons:
-      py37:
-        spec: '3.7'
       py38:
         spec: '3.8'
       py39:
         spec: '3.9'
       py310:
         spec: '3.10'
+      py311:
+        spec: '3.11'
+      py312:
+        spec: '3.12'
     platforms: [linux, windows, macOs]
 
 - job: flake8
@@ -28,13 +30,10 @@ jobs:
   steps:
     - task: UsePythonVersion@0
       inputs:
-        versionSpec: '3.10'
+        versionSpec: '3.12'
 
     - script: pip install -U tox
       displayName: Install tox
-
-    - script: pip install -r requirements-flake8.txt
-      displayName: Install flake8 & plugins
 
     - script: tox -e flake8
       displayName: Lint the codebase
@@ -45,7 +44,7 @@ jobs:
   steps:
     - task: UsePythonVersion@0
       inputs:
-        versionSpec: '3.10'
+        versionSpec: '3.12'
 
     - script: pip install -r requirements-ci.txt
       displayName: Install CI requirements
