@@ -1,5 +1,6 @@
 [build-system]
 requires = [
+    "wheel",
     "setuptools>=61.2",
 ]
 build-backend = "setuptools.build_meta"
@@ -72,3 +73,22 @@ where = [
     "src",
 ]
 namespaces = false
+
+[tool.black]
+line-length = 88
+include = '''
+(
+    ^tests/.*[.]py$
+  | ^src/flake8_absolute_import/.*[.]py$
+  | ^setup[.]py
+  | ^conftest[.]py
+)
+'''
+exclude = '''
+(
+    __pycache__
+  | ^[.]
+  | ^doc
+  | ^env
+)
+'''
