@@ -70,5 +70,5 @@ jobs:
       cd sandbox
       source env/bin/activate
       cd $( find . -maxdepth 1 -type d -regex "./.+[0-9].+" )
-      pytest --nonloc
+      pytest
     displayName: Run test suite in sandbox
