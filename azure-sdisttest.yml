@@ -63,7 +63,8 @@ jobs:
       cd $( find . -maxdepth 1 -type d -regex "./.+[0-9].+" )
       cd doc
       O=-Ean make html
-    displayName: Build docs in sandbox
+    displayName: Build docs in sandbox (skipped, no docs)
+    if: false
 
   - script: |
       cd sandbox
