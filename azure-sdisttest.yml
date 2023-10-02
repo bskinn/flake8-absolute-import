@@ -64,7 +64,7 @@ jobs:
       cd doc
       O=-Ean make html
     displayName: Build docs in sandbox (skipped, no docs)
-    if: false
+    condition: false
 
   - script: |
       cd sandbox
