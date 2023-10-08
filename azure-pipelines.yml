@@ -20,6 +20,8 @@ jobs:
         spec: '3.10'
       py311:
         spec: '3.11'
+      py312:
+        spec: '3.12'
     platforms: [linux, windows, macOs]
 
 - template: azure-sdisttest.yml
