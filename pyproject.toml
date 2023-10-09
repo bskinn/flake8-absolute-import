@@ -65,6 +65,9 @@ license-files = [
 ]
 include-package-data = false
 
+[tool.setuptools.dynamic]
+version = {attr = "flake8_absolute_import.version.__version__"}
+
 [tool.setuptools.package-dir]
 "" = "src"
 
