@@ -5,7 +5,7 @@ flake8-absolute-import
 
 **Current Development Version:**
 
-.. image:: https://img.shields.io/github/workflow/status/bskinn/flake8-absolute-import/ci-tests?logo=github
+.. image:: https://img.shields.io/github/actions/workflow/status/bskinn/flake8-absolute-import/ci_tests.yml?branch=main&logo=github
     :alt: GitHub Workflow Status
     :target: https://github.com/bskinn/flake8-absolute-import/actions
 
