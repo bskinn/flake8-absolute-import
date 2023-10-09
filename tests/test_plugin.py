@@ -3,13 +3,13 @@ r"""*Core tests file for* ``flake8-absolute-import``.
 flake8 plugin to require absolute imports
 
 **Author**
-    Brian Skinn (bskinn@alum.mit.edu)
+    Brian Skinn (brian.skinn@gmail.com)
 
 **File Created**
     6 Sep 2019
 
 **Copyright**
-    \(c) Brian Skinn 2019-2021
+    \(c) Brian Skinn 2019-2023
 
 **Source Repository**
     http://github.com/bskinn/flake8-absolute-import
@@ -29,14 +29,14 @@ import pytest
 from flake8_absolute_import import Plugin
 
 
-def is_relative(s):
-    """Indicate if a given 'from s' import location is a relative import."""
-    return s.startswith(".")
+def is_relative(import_source):
+    """Indicate if a given 'from {source}' import location is a relative import."""
+    return import_source.startswith(".")
 
 
-def format_id(i):
+def format_id(id_):
     """Provide parametrization id formatting for the given id."""
-    return "{0} (expect {1}error)".format(i, "" if is_relative(i) else "no ")
+    return f"{id_} (expect {'' if is_relative(id_) else 'no '}error)"
 
 
 @pytest.mark.parametrize("code", ["import sys", "import flake8_absolute_import"])
@@ -106,11 +106,11 @@ def test_multilevel_relative_import():
 def test_func_imports(impfrom):
     """Confirm plugin works for imports in functions."""
     code = dedent(
-        """
+        f"""
     def func():
-        from {} import foo
+        from {impfrom} import foo
     """
-    ).format(impfrom)
+    )
 
     tree = ast.parse(code)
     assert (len(list(Plugin(tree).run())) == 1) == (impfrom.startswith("."))
@@ -120,11 +120,11 @@ def test_func_imports(impfrom):
 def test_class_imports(impfrom):
     """Confirm plugin works for imports in class bodies."""
     code = dedent(
-        """
+        f"""
     class Bar:
-        from {} import foo
+        from {impfrom} import foo
     """
-    ).format(impfrom)
+    )
 
     tree = ast.parse(code)
     assert (len(list(Plugin(tree).run())) == 1) == (impfrom.startswith("."))
@@ -134,12 +134,12 @@ def test_class_imports(impfrom):
 def test_method_imports(impfrom):
     """Confirm plugin works for imports in class methods."""
     code = dedent(
-        """
+        f"""
     class Bar:
         def baz(self):
-            from {} import foo
+            from {impfrom} import foo
     """
-    ).format(impfrom)
+    )
 
     tree = ast.parse(code)
     assert (len(list(Plugin(tree).run())) == 1) == (impfrom.startswith("."))
