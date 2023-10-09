@@ -33,7 +33,7 @@ flake8-absolute-import
 
 Lint 'em out!
 
-``flake8-absolute-import`` uses a simple check of the AST for each
+``flake8-absolute-import`` uses a direct check of the AST for each
 ``from x import y`` statement to flag relative imports.
 Specifically, it checks for a nonzero *level* attribute on each
 |ImportFrom|_ node.
