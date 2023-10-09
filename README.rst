@@ -57,8 +57,13 @@ and feature requests are welcomed at the
 
 Copyright (c) Brian Skinn 2019-2023
 
-License: The MIT License. See `LICENSE.txt <https://github.com/bskinn/flake8-absolute-import/blob/main/LICENSE.txt>`__
-for full license terms.
+The ``flake8-absolute-import`` documentation (including docstrings and README)
+is licensed under a
+`Creative Commons Attribution 4.0 International License <http://creativecommons.org/licenses/by/4.0/>`__
+(CC-BY). The ``flake8-absolute-import`` codebase is released under the
+`MIT License <https://opensource.org/licenses/MIT>`__. See
+`LICENSE.txt <https://github.com/bskinn/flake8-absolute-import/blob/main/LICENSE.txt>`__ for
+full license terms.
 
 .. _ImportFrom: https://greentreesnakes.readthedocs.io/en/latest/nodes.html#ImportFrom
 .. |ImportFrom| replace:: ``ImportFrom``
