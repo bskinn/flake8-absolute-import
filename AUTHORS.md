@@ -2,7 +2,7 @@ Credits
 =======
 
 `flake8-absolute-import` is authored and maintained by Brian Skinn
-([Blog](https://bskinn.github.io)) ([Twitter](https://twitter.com/btskinn)). The
+([Blog](https://bskinn.github.io)) ([Mastodon](https://fosstodon.org/@btskinn)). The
 skeleton of the AST-based implementation used for this plugin was shamelessly
 swiped from [`flake8-2020`](https://github.com/asottile/flake8-2020) by
 [Anthony Sottile](https://github.com/asottile).
