@@ -14,7 +14,7 @@ jobs:
   testdir_coverage:
     name: via coverage check
     runs-on: 'ubuntu-latest'
-    if: ${{ !github.event.pull_request.draft }}
+    if: ${{ !github.event.pull_request.draft && !contains(toJson(github.event), '[skip ci]')}}
 
     steps:
     - name: Check out repo
