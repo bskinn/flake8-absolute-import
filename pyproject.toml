@@ -1,7 +1,7 @@
 [build-system]
 requires = [
     "wheel",
-    "setuptools>=61.2",
+    "setuptools>=77",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -11,9 +11,11 @@ description = "flake8 plugin to require absolute imports"
 authors = [
     { name = "Brian Skinn", email = "brian.skinn@gmail.com" },
 ]
+license = "MIT"
+license-files = [
+    "LICENSE.txt",
+]
 classifiers = [
-    "License :: OSI Approved",
-    "License :: OSI Approved :: MIT License",
     "Natural Language :: English",
     "Framework :: Flake8",
     "Intended Audience :: Developers",
@@ -50,18 +52,12 @@ Changelog = "https://github.com/bskinn/flake8-absolute-import/blob/main/CHANGELO
 Thank = "https://twitter.com/btskinn"
 Donate = "https://github.com/sponsors/bskinn"
 
-[project.license]
-text = "MIT License"
-
 [project.entry-points."flake8.extension"]
 ABS1 = "flake8_absolute_import:Plugin"
 
 [tool.setuptools]
 platforms = [
     "any",
-]
-license-files = [
-    "LICENSE.txt",
 ]
 include-package-data = false
 
