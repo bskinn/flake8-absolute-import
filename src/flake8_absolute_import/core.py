@@ -22,21 +22,22 @@ flake8 plugin to require absolute imports
 """
 
 import ast
+from typing import Generator
 
 from flake8_absolute_import.version import __version__
 
 
-ABS101 = "ABS101 Relative import found"
+ABS101: str = "ABS101 Relative import found"
 
 
 class Visitor(ast.NodeVisitor):
     """NodeVisitor to report relative imports."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Create a Visitor with empty errors list."""
-        self.errors = []
+        self.errors: list[tuple[int, int, str]] = []
 
-    def visit_ImportFrom(self, node):  # noqa: N802
+    def visit_ImportFrom(self, node) -> None:  # noqa: N802
         """Implement check for relative import."""
         if node.level > 0:
             self.errors.append((node.lineno, node.col_offset, ABS101))
@@ -47,17 +48,19 @@ class Visitor(ast.NodeVisitor):
 class Plugin:
     """Core plugin class for flake8-absolute-import."""
 
-    name = "flake8-absolute-import"
+    name: str = "flake8-absolute-import"
     version = __version__
 
-    def __init__(self, tree):
+    def __init__(self, tree: ast.Module) -> None:
         """Create plugin instance from the provided AST."""
         self._tree = tree
 
-    def run(self):
+    def run(self) -> Generator[tuple[int, int, str, type], None, None]:
         """Traverse the AST and collect the errors."""
         visitor = Visitor()
         visitor.visit(self._tree)
 
-        for line, col, msg in visitor.errors:
+        errors: list[tuple[int, int, str]] = visitor.errors
+
+        for line, col, msg in errors:
             yield line, col, msg, type(self)

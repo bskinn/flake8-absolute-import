@@ -95,3 +95,18 @@ exclude = '''
   | ^env
 )
 '''
+
+[tool.mypy]
+mypy_path = "src"
+warn_return_any = true
+warn_unused_configs = true
+exclude = '''(?x)(
+  ^env/
+  )
+  '''
+
+[[tool.mypy.overrides]]
+module = [
+  "pytest",
+]
+ignore_missing_imports = true

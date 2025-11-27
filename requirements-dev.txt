@@ -3,6 +3,7 @@ pytest>=4.4.0
 pytest-cov
 restview
 tox
+types-setuptools
 twine
 wget
 -r requirements-flake8.txt
