@@ -1,10 +1,10 @@
-name: ci-tests
+name: 'PR: Run core tests'
 
-on: push
+on: pull_request
 
 jobs:
   all_checks:
-    name: Run all tests, lints, etc. (Python 3.14)
+    name: plus lints, etc. on Python 3.14
     runs-on: ubuntu-latest
     if: '!contains(github.event.head_commit.message, ''[skip ci]'')'
 
@@ -40,7 +40,7 @@ jobs:
 
 
   just_tests:
-    name: Run only the test suite
+    name: for Python ${{ matrix.python }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
