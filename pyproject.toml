@@ -1,7 +1,7 @@
 [build-system]
 requires = [
     "wheel",
-    "setuptools>=61.2",
+    "setuptools>=77",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -11,9 +11,11 @@ description = "flake8 plugin to require absolute imports"
 authors = [
     { name = "Brian Skinn", email = "brian.skinn@gmail.com" },
 ]
+license = "MIT"
+license-files = [
+    "LICENSE.txt",
+]
 classifiers = [
-    "License :: OSI Approved",
-    "License :: OSI Approved :: MIT License",
     "Natural Language :: English",
     "Framework :: Flake8",
     "Intended Audience :: Developers",
@@ -21,21 +23,23 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Software Development :: Quality Assurance",
+    "Typing :: Typed",
     "Development Status :: 5 - Production/Stable",
 ]
 keywords = [
+    "flake8",
     "flake8-plugin",
     "linting",
     "absolute-imports",
     "relative-imports",
 ]
-requires-python = ">=3.6"
+requires-python = ">=3.10"
 dependencies = [
     "flake8>=5.0",
 ]
@@ -47,11 +51,7 @@ dynamic = [
 [project.urls]
 Homepage = "https://github.com/bskinn/flake8-absolute-import"
 Changelog = "https://github.com/bskinn/flake8-absolute-import/blob/main/CHANGELOG.md"
-Thank = "https://twitter.com/btskinn"
 Donate = "https://github.com/sponsors/bskinn"
-
-[project.license]
-text = "MIT License"
 
 [project.entry-points."flake8.extension"]
 ABS1 = "flake8_absolute_import:Plugin"
@@ -59,9 +59,6 @@ ABS1 = "flake8_absolute_import:Plugin"
 [tool.setuptools]
 platforms = [
     "any",
-]
-license-files = [
-    "LICENSE.txt",
 ]
 include-package-data = false
 
@@ -81,17 +78,32 @@ namespaces = false
 line-length = 88
 include = '''
 (
-    ^tests/.*[.]py$
-  | ^src/flake8_absolute_import/.*[.]py$
-  | ^setup[.]py
-  | ^conftest[.]py
+    ^/tests/.*[.]py$
+  | ^/src/flake8_absolute_import/.*[.]py$
+  | ^/setup[.]py
+  | ^/conftest[.]py
 )
 '''
 exclude = '''
 (
     __pycache__
-  | ^[.]
-  | ^doc
-  | ^env
+  | ^/[.]
+  | ^/doc
+  | ^/env
 )
 '''
+
+[tool.mypy]
+mypy_path = "src"
+warn_return_any = true
+warn_unused_configs = true
+exclude = '''(?x)(
+  ^env/
+  )
+  '''
+
+[[tool.mypy.overrides]]
+module = [
+  "pytest",
+]
+ignore_missing_imports = true
