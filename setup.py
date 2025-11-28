@@ -1,7 +1,7 @@
 import re
 from pathlib import Path
 from setuptools import find_packages, setup
-from typing import Any
+from typing import Any, cast
 
 
 exec_ns: dict[str, Any] = {}
@@ -9,7 +9,7 @@ exec(
     Path("src", "flake8_absolute_import", "version.py").read_text(encoding="utf-8"),
     exec_ns,
 )
-__version__ = exec_ns["__version__"]
+__version__ = cast(str, exec_ns["__version__"])
 
 NAME = "flake8-absolute-import"
 version_override = None
