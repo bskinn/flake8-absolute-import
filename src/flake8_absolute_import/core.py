@@ -59,7 +59,5 @@ class Plugin:
         visitor = Visitor()
         visitor.visit(self._tree)
 
-        errors: list[tuple[int, int, str]] = visitor.errors
-
-        for line, col, msg in errors:
+        for line, col, msg in visitor.errors:
             yield line, col, msg, type(self)
