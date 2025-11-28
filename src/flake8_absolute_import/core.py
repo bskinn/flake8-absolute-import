@@ -26,7 +26,6 @@ from typing import Generator
 
 from flake8_absolute_import.version import __version__
 
-
 ABS101: str = "ABS101 Relative import found"
 
 
