@@ -66,7 +66,7 @@ License]. See [`LICENSE.txt`] for full license terms.
 [MIT License]: https://opensource.org/licenses/MIT
 
 [pepy badge]: https://pepy.tech/badge/flake8-absolute-import/month
-[pepy link target]: https://pepy.tech/project/flake8-absolute-import
+[pepy link target]: https://pepy.tech/projects/flake8-absolute-import?timeRange=threeMonths&category=version&includeCIDownloads=true&granularity=daily&viewType=line&versions=1.0.0.3%2C1.0.0.2%2C1.0.0.1%2C1.0
 
 [pypi badge]: https://img.shields.io/pypi/v/flake8-absolute-import.svg?logo=pypi
 [pypi link target]: https://pypi.org/project/flake8-absolute-import
