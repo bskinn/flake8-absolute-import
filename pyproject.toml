@@ -51,7 +51,6 @@ dynamic = [
 [project.urls]
 Homepage = "https://github.com/bskinn/flake8-absolute-import"
 Changelog = "https://github.com/bskinn/flake8-absolute-import/blob/main/CHANGELOG.md"
-Thank = "https://twitter.com/btskinn"
 Donate = "https://github.com/sponsors/bskinn"
 
 [project.entry-points."flake8.extension"]
