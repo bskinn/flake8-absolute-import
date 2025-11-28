@@ -26,6 +26,59 @@ specific to the error codes emitted by the plugin as part of flake8 execution:
     behavior.
 
 
+### [1.0.0.3] - 2025-11-27
+
+This release contains significant changes, but none that should alter the
+behavior of the plugin. Thus, it is being considered an administrative release
+despite its scale.
+
+#### Dependencies
+
+- Add formal support for Python 3.13 and 3.14.
+
+- Drop formal support for Python 3.8 and 3.9.
+
+- Increase the minimum permitted Python version to install the package to Python
+  3.10.
+
+#### Internal
+
+- Add types to the project code.
+
+#### Administrative
+
+- Upgrade `checkout` and `setup-python` actions.
+
+- Convert Azure Pipelines jobs to GitHub Actions and remove Azure config.
+  - The cross-platform auth/auth required to keep Pipelines working just wasn't
+    worth the effort to put in place.
+  - The cross-platform tests, sdist-install check, and test-dir coverage check
+    now all run only on PRs to `stable`.
+    - Credentials persistence was disabled for all.
+    - All were implemented with pip caching.
+
+- Convert core tests workflow to run on PR, not push, and modernize.
+  - Cache pip.
+  - Disable credentials persistence.
+  - Advance Python versions.
+
+- Remove CodeCov from workflows and requirements.
+  - The project/team is far too small for it to be valuable.
+
+- Update copyright end years.
+
+- Convert `README` to Markdown.
+
+- Modernize `pyproject.toml` and `setuptools` config.
+
+- Add multiple `tox` envs:
+  - `black`
+  - `mypy`
+  - `isort`
+  - `check` (rollup of `isort`, `black`, `flake8`, `mypy`)
+  - `build`
+
+
 ### [1.0.0.2] - 2023-10-08
 
 This is an administrative release, primarily to update officially supported
