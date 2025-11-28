@@ -1,21 +1,22 @@
 import re
 from pathlib import Path
 from setuptools import find_packages, setup
+from typing import Any, cast
 
 
-exec_ns = {}
+exec_ns: dict[str, Any] = {}
 exec(
     Path("src", "flake8_absolute_import", "version.py").read_text(encoding="utf-8"),
     exec_ns,
 )
-__version__ = exec_ns["__version__"]
+__version__ = cast(str, exec_ns["__version__"])
 
 NAME = "flake8-absolute-import"
 version_override = None
 
 
 def readme():
-    content = Path("README.rst").read_text()
+    content = Path("README.md").read_text(encoding="utf-8")
 
     new_ver = version_override if version_override else __version__
 
@@ -39,5 +40,5 @@ def readme():
 
 setup(
     long_description=readme(),
-    long_description_content_type="text/x-rst",
+    long_description_content_type="text/markdown",
 )
