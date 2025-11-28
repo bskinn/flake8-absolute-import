@@ -21,4 +21,4 @@ flake8 plugin to require absolute imports
 
 """
 
-__version__: str = "1.0.0.3"
+__version__: str = "1.0.0.4.dev0"
