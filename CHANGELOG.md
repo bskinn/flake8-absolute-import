@@ -3,8 +3,27 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-and this project strives to adhere (mostly) to
-[Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+and this project follows an extension of [Semantic
+Versioning](http://semver.org/spec/v2.0.0.html), adding a fourth `ADMIN` version
+segment.
+
+The plugin interface changes implied by bumps in these SemVer versions are
+specific to the error codes emitted by the plugin as part of flake8 execution:
+
+- **Major**
+  - Any addition or removal of an error code emitted by the plugin.
+  - Any change to the default behavior of the plugin with respect to an existing
+    error code.
+- **Minor**
+  - Addition of new, configurable behavior of the plugin related to an existing
+    error code, which is not expected to alter the error code emitting behavior
+    of any existing user configurations.
+- **Patch**
+  - Bugfixes to align the plugin's actual behavior with its stated behavior with
+    regard to error codes emitted.
+- **Admin**
+  - Releases with changes that are expected to have no effect on plugin
+    behavior.
 
 
 ### [1.0.0.2] - 2023-10-08
