@@ -1,4 +1,4 @@
-## flake8-absolute-import: flake8 plugin to require absolute imports
+## flake8-absolute-import: A flake8 plugin to require absolute imports
 
 #### Current Development Version
 
