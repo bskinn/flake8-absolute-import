@@ -42,7 +42,7 @@ required.
 Source on [GitHub][gh repo]. Bug reports and feature requests are welcomed at
 the [Issues][gh issues] page there.
 
-Copyright (c) Brian Skinn 2019-2023
+Copyright (c) Brian Skinn 2019-2025
 
 The `flake8-absolute-import` documentation (currently docstrings and README) is
 licensed under a [Creative Commons Attribution 4.0 International License][cc-by]
