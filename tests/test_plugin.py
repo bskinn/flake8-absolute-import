@@ -15,7 +15,11 @@ flake8 plugin to require absolute imports
     http://github.com/bskinn/flake8-absolute-import
 
 **License**
-    The MIT License; see |license_txt|_ for full license terms
+    Code: `MIT License`_
+
+    Docs & Docstrings: |CC BY 4.0|_
+
+    See |license_txt|_ for full license terms.
 
 **Members**
 
