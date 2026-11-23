@@ -85,13 +85,11 @@ def test_multiple_relative_imports():
 
 def test_correct_relative_import_linenos():
     """Confirm the multiple errors are reported on the correct lines."""
-    code = dedent(
-        """\
+    code = dedent("""\
     from .core import Plugin
     from f8_absolute_import.core import Visitor
     from .version import __version__
-    """
-    )
+    """)
 
     tree = ast.parse(code)
     assert {t[0] for t in Plugin(tree).run()} == {1, 3}
@@ -109,12 +107,10 @@ def test_multilevel_relative_import():
 @pytest.mark.parametrize("impfrom", ["mod", ".mod"], ids=format_id)
 def test_func_imports(impfrom):
     """Confirm plugin works for imports in functions."""
-    code = dedent(
-        f"""
+    code = dedent(f"""
     def func():
         from {impfrom} import foo
-    """
-    )
+    """)
 
     tree = ast.parse(code)
     assert (len(list(Plugin(tree).run())) == 1) == (impfrom.startswith("."))
@@ -123,12 +119,10 @@ def test_func_imports(impfrom):
 @pytest.mark.parametrize("impfrom", ["mod", ".mod"], ids=format_id)
 def test_class_imports(impfrom):
     """Confirm plugin works for imports in class bodies."""
-    code = dedent(
-        f"""
+    code = dedent(f"""
     class Bar:
         from {impfrom} import foo
-    """
-    )
+    """)
 
     tree = ast.parse(code)
     assert (len(list(Plugin(tree).run())) == 1) == (impfrom.startswith("."))
@@ -137,13 +131,11 @@ def test_class_imports(impfrom):
 @pytest.mark.parametrize("impfrom", ["mod", ".mod"], ids=format_id)
 def test_method_imports(impfrom):
     """Confirm plugin works for imports in class methods."""
-    code = dedent(
-        f"""
+    code = dedent(f"""
     class Bar:
         def baz(self):
             from {impfrom} import foo
-    """
-    )
+    """)
 
     tree = ast.parse(code)
     assert (len(list(Plugin(tree).run())) == 1) == (impfrom.startswith("."))

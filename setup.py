@@ -3,7 +3,6 @@ from pathlib import Path
 from setuptools import find_packages, setup
 from typing import Any, cast
 
-
 exec_ns: dict[str, Any] = {}
 exec(
     Path("src", "flake8_absolute_import", "version.py").read_text(encoding="utf-8"),
